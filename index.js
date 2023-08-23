@@ -3,7 +3,7 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 4000
 
 const app = express()
 
@@ -16,7 +16,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(require("./routes/nodedata/nodedata.js"))
 
 //setup mongoose
-const mongodbConnString = `mongodb+srv://${process.env.USER_NAME}:${process.env.PASSWORD}@${process.env.CLUSTER_NAME}.clqdnkz.mongodb.net/${process.env.DB_NAME}`
+// const mongodbConnString = `mongodb+srv://${process.env.USER_NAME}:${process.env.PASSWORD}@${process.env.CLUSTER_NAME}.clqdnkz.mongodb.net/${process.env.DB_NAME}`
+const mongodbConnString = `mongodb+srv://ananda:anandafdas@cluster0.l3rgo3q.mongodb.net/`
+
 
 mongoose.connect(mongodbConnString)
 

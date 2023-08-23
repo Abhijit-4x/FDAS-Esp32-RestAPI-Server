@@ -3,11 +3,12 @@ const sampleSchema = require("../models/sample.js");
 
 module.exports = {
   //call back function to create our new key code
-  createNewNodeData: function (data1, active, data2) {
+  createNewNodeData: function ( temp, humidity, co, triggers ) {
     const newNodeData = new sampleSchema({
-      data1: data1,
-      active: active,
-      data2: data2,
+      temp: temp,
+      humidity: humidity,
+      co: co,
+      triggers: triggers
     });
     newNodeData.save()
     .then( () => console.log(newNodeData) )

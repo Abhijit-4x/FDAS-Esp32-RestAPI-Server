@@ -20,13 +20,15 @@ router.get('/api', (req, res) => {
 
 //New Key Code Route
 router.post('/api/nodedata/newNodeData',(req, res) => {
-    if (!req.body.data1) {
-        res.json({ error: false });
+    if (!req.body.temp || !req.body.humidity || !req.body.co) {
+        console.log(req.body.temp,"hi");
+        // res.json({ error: true });
       } else {
         nodeDataController.createNewNodeData(
-          req.body.data1,
-          req.body.active,
-          req.body.data2,
+          req.body.temp,
+          req.body.humidity,
+          req.body.co,
+          req.body.triggers,
           function (result) {
             res.json(result);
           }

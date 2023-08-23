@@ -1,20 +1,25 @@
 const mongoose = require("mongoose")
 
 const sampleSchema = new mongoose.Schema({
-  data1: {
-    type: String,
+  temp: {
+    type: Number,
     required: true
   },
-  active: {
+  humidity: {
+    type: Number,
+    required: true
+  },
+  co: {
+    type: Number,
+    required: true
+  },
+  triggers: {
     type: Boolean,
-    required: true
-  },
-  data2: {
-    type: String,
-    required: true
+    default: false
   }
-}, { timestamps: true })
 
-sampleSchema.index({data1: 1}, {unique: true})
+}, { timestamps: false })
 
-module.exports = mongoose.model("NodeData", sampleSchema)
+// sampleSchema.index({data1: 1}, {unique: true})
+
+module.exports = mongoose.model("fdas", sampleSchema)
