@@ -29,10 +29,10 @@ router.post('/api/nodedata/newNodeData',(req, res) => {
           req.body.humidity,
           req.body.co,
           req.body.triggers,
-          function (result) {
-            res.json(result);
-          }
-        );
+          // function (result) {
+          //   res.json(result);
+          // }
+        ).then( () => res.json(result) );
       }
 })
 
